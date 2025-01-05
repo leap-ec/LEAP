@@ -9,7 +9,6 @@ import warnings
 from matplotlib import pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
-from numpy.lib.twodim_base import diag
 from numpy.random import random
 
 from leap_ec.problem import FitnessOffsetProblem, ScalarProblem
