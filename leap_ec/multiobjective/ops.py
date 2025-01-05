@@ -189,11 +189,11 @@ def per_rank_crowding_calc(ranked_population: list, is_maximizing) -> list:
     # infinities. At first we assume maximization for all of the objectives,
     # but then we fine-tune for minimization in the next step.
     f_min = np.full(num_objectives, np.inf)
-    f_max = np.full(num_objectives, np.NINF)
+    f_max = np.full(num_objectives, -np.inf)
 
     for objective in range(num_objectives):
         if is_maximizing[objective] == -1:
-            f_min[objective] = np.NINF
+            f_min[objective] = -np.inf
             f_max[objective] = np.inf
 
     # Find ranges of fitness per objective
