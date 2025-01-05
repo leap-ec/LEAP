@@ -1,6 +1,4 @@
-# This is our manually-curated lists of requirements.  We've locked
-# some of the versions to ensure that we get the same results when
-# running the tests on different machines.
+# This is our manually-curated lists of requirements.
 #
 # This is more complete than the install_requires list used by setup.py for
 # the package (which only contains the bare minimal dependencies required
@@ -9,20 +7,20 @@
 
 -e .
 
-click==8.0.4
+click
 coveralls
-dask==2023.3.2
-distributed==2023.3.2
+dask
+distributed
 flake8
-gymnasium==0.26.3
-jupyter==1.0.0
-matplotlib==3.7.1
+gymnasium
+jupyter
+matplotlib
 nbconvert
 nbformat
-networkx==2.8.4
-numpy==1.23.5
-pandas==1.4.1
-Pillow==9.4.0
+networkx
+numpy
+pandas
+Pillow
 pytest
 pytest-cov
 python-coveralls
@@ -30,4 +28,4 @@ rich
 seaborn
 sphinx
 sphinx_rtd_theme
-toolz==0.12.0
+toolz
