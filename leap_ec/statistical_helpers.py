@@ -61,7 +61,7 @@ def stochastic_chisquare(expected_distribution, distribution):
     >>> expected_distribution = { 1: 10, 2: 10, 3: 10, 4: 10, 5: 10, 6: 10}
     >>> distribution = { 1: 5, 2: 8, 3: 9, 4: 8, 5: 10, 6: 20}
     >>> stochastic_chisquare(expected_distribution, distribution)
-    0.01990...
+    np.float64(0.01990...)
 
     The p-value is low, because the samples are quite different, so the
     "probability of seeing that big a difference or greater if the two
@@ -72,7 +72,7 @@ def stochastic_chisquare(expected_distribution, distribution):
     >>> expected_distribution = { 1: 10, 2: 10, 3: 10, 4: 10, 5: 10, 6: 10}
     >>> distribution = { 1: 10, 2: 10, 3: 10, 4: 10, 5: 10, 6: 10}
     >>> stochastic_chisquare(expected_distribution, distribution)
-    1.0
+    np.float64(1.0)
     """
     assert(sum(expected_distribution.values()) == sum(distribution.values())), f"The distributions have {sum(expected_distribution.values())} and {sum(distribution.values())} samples, respectively, but must be equal."
     
@@ -180,7 +180,7 @@ def equals_gaussian(observed_samples, reference_mean: float, reference_std: floa
     >>> import numpy as np
     >>> observed = np.random.normal(15, 1, size=1000)
     >>> equals_gaussian(observed, 15, 1, 1000, p=0.05)
-    True
+    np.True_
     """
     mu, sigma = np.mean(observed_samples), np.std(observed_samples)
     result = ttest_ind_from_stats(mu, sigma, len(observed_samples),

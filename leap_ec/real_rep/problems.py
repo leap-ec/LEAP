@@ -125,7 +125,7 @@ class RastriginProblem(ScalarProblem):
 
         >>> phenome = [1.0/12, 0]
         >>> RastriginProblem().evaluate(phenome) # doctest: +ELLIPSIS
-        0.1409190406...
+        np.float64(0.1409190406...)
 
         :param phenome: real-valued vector to be evaluated
         :returns: its fitness
@@ -276,7 +276,7 @@ class StepProblem(ScalarProblem):
         >>> import numpy as np
         >>> phenome = np.array([3.5, -3.8, 5.0])
         >>> StepProblem().evaluate(phenome)
-        4.0
+        np.float64(4.0)
 
         :param phenome: real-valued vector to be evaluated
         :returns: its fitness
@@ -1313,7 +1313,7 @@ class TranslatedProblem(ScalarProblem):
         >>> t_sphere = TranslatedProblem(SpheroidProblem(), offset)
         >>> genome = np.array([0.5, 2.0, 3.0, 8.5, -0.6])
         >>> t_sphere.evaluate(genome)
-        90.86
+        np.float64(90.86)
         """
         assert (len(phenome) == len(self.offset)), \
             f"Tried to evalute a {len(phenome)}-D genome in a " \
@@ -1530,8 +1530,8 @@ class MatrixTransformedProblem(ScalarProblem):
 
         >>> import numpy as np
         >>> s = TranslatedProblem(SpheroidProblem(), offset=[0, 1])
-        >>> round(s.evaluate(np.array([0, 1])), 5)
-        0
+        >>> np.round(s.evaluate(np.array([0, 1])), 5)
+        np.int64(0)
 
         Now let's take a rotation matrix that transforms the space by pi/2
         radians:
@@ -1544,14 +1544,14 @@ class MatrixTransformedProblem(ScalarProblem):
 
         The rotation has moved the new global optimum to (1, 0)
 
-        >>> round(r.evaluate(np.array([1, 0])), 5)
-        0.0
+        >>> np.round(r.evaluate(np.array([1, 0])), 5)
+        np.float64(0.0)
 
         The point (0, 1) lies at a distance of sqrt(2) from the new optimum,
         and has a fitness of 2:
 
-        >>> round(r.evaluate(np.array([0, 1])), 5)
-        2.0
+        >>> np.round(r.evaluate(np.array([0, 1])), 5)
+        np.float64(2.0)
         """
         assert (len(phenome) == len(
             self.matrix)), f"Tried to evalute a {len(phenome)}-D genome in a " \

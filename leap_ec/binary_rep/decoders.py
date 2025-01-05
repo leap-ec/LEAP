@@ -86,7 +86,7 @@ class BinaryToIntDecoder(Decoder):
         >>> import numpy as np
         >>> b = np.array([0, 1, 0, 1])
         >>> BinaryToIntDecoder._BinaryToIntDecoder__binary_to_int(b)
-        5
+        np.int64(5)
         """
         # compute powers of 2 and cache results
         if powers_2 is None or b.size > powers_2.size:

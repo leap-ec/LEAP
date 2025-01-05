@@ -48,7 +48,7 @@ class MaxOnes(ScalarProblem):
         >>> import numpy as np
         >>> p = MaxOnes(target_string=np.array([1, 1, 1, 1, 1, 0, 0, 0 ,0]))
         >>> p.evaluate(np.array([0, 0, 1, 1, 0, 1, 0, 1, 1]))
-        3
+        np.int64(3)
         """
         if not isinstance(phenome, np.ndarray):
             raise ValueError(("Expected phenome to be a numpy array. "
@@ -93,13 +93,13 @@ class LeadingOnes(ScalarProblem):
         >>> import numpy as np
         >>> p = LeadingOnes()
         >>> p.evaluate(np.array([1, 1, 1, 1, 0, 1, 0, 1, 1]))
-        4
+        np.int64(4)
 
         Or, if a target string was given, we count matches:
 
         >>> p = LeadingOnes(target_string=np.array([1, 1, 0, 1, 1, 0, 0, 0 ,0]))
         >>> p.evaluate(np.array([1, 1, 1, 1, 0, 1, 0, 1, 1]))
-        2
+        np.int64(2)
         """
         if not isinstance(phenome, np.ndarray):
             raise ValueError(("Expected phenome to be a numpy array. "
