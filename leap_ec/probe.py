@@ -683,8 +683,11 @@ class PopulationMetricsPlotProbe:
 
             self._rescale_ax()
             self.ax.figure.canvas.draw()
-            plt.pause(0.000001)
-            #plt.ion()  # XXX Not sure this is needed
+            # With previous versions of matplotlib and/or jupyter, these lines were needed to
+            #   trigger the plot to update in real time.  But as of the time of this comment,
+            #   they are either not needed or caused problems.
+            #plt.pause(0.000001)
+            #plt.ion()
         return population
 
     def reset(self):

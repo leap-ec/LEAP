@@ -53,7 +53,10 @@ class ParetoPlotProbe2D(PopulationMetricsPlotProbe):
             self.scatterplot.set_offsets(np.c_[self.x, self.y])
             self._rescale_ax()
             self.ax.figure.canvas.draw()
-            plt.pause(0.000001)
+            # With previous versions of matplotlib and/or jupyter, this line was needed to
+            #   trigger the plot to update in real time.  But as of the time of this comment,
+            #   it is either not needed or caused problems.
+            #plt.pause(0.000001)
 
         return population
 
