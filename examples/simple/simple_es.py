@@ -55,6 +55,7 @@ def anneal_std(generation):
     # this was in the context of the 1/5 success rule, which we've not
     # implemented here.
     # Handbook of EC, B1.3:2
+    global context
     context['leap']['std'] *= .85
 
 
