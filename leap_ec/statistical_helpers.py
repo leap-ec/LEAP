@@ -180,7 +180,7 @@ def equals_gaussian(observed_samples, reference_mean: float, reference_std: floa
     >>> import numpy as np
     >>> observed = np.random.normal(15, 1, size=1000)
     >>> equals_gaussian(observed, 15, 1, 1000, p=0.05)
-    np.True_
+    True
     """
     mu, sigma = np.mean(observed_samples), np.std(observed_samples)
     result = ttest_ind_from_stats(mu, sigma, len(observed_samples),
