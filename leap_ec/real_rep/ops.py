@@ -191,6 +191,10 @@ def mutate_bpm(next_individual: Iterator,
                expected_num_mutations: Union[int, str] = None,
                bounds: Tuple[float, float] = None) -> Iterator:
     """Mutate and return an Individual with a real-valued representation.
+        
+        Deb, Kalyanmoy, Amrit Pratap, Sameer Agarwal, and T. A. M. T. Meyarivan.
+            "A Fast and Elitist Multiobjective Genetic Algorithm: NSGA-II." IEEE
+            transactions on evolutionary computation 6, no. 2 (2002): 182-197.
 
     This operators on an iterator of Individuals:
 
@@ -208,8 +212,8 @@ def mutate_bpm(next_individual: Iterator,
 
     >>> pop = iter([Individual(np.array([1.0, 0.0]))])
     >>> op = mutate_bpm(eta=[10, 20],
-    ...                      expected_num_mutations='isotropic',
-    ...                      bounds=[(-1, 1), (-10, 10)]
+    ...                 expected_num_mutations='isotropic',
+    ...                 bounds=[(-1, 1), (-10, 10)]
     ... )
     >>> mutated = next(op(pop))
 
@@ -247,6 +251,16 @@ def genome_mutate_bpm(genome,
                       eta: float,
                       expected_num_mutations,
                       bounds: Tuple[float, float]):
+    """Perform bounded polynomial mutation mutation directly on real-valued genes (rather than
+    on an Individual).
+
+    :param genome: of real-valued numbers that will potentially be mutated
+    :param eta: eta value of the mutation, higher values are more closely distributed
+        to the original parameters
+    :param expected_num_mutations: on average how many mutations are expected
+    :param bounds: to clip for mutations, also factors into the distribution
+    :return: mutated genome
+    """
 
     if not isinstance(genome, np.ndarray):
         raise ValueError(("Expected genome to be a numpy array. "
@@ -288,6 +302,9 @@ def genome_mutate_bpm(genome,
 class SimulatedBinaryCrossover(Crossover):
     """Parameterized simulated binary crossover iterates through two parents' genomes,
     mutates them based on their compared values, and probabilistically swaps genes.
+        
+        Deb, Kalyanmoy, and Ram Bhushan Agrawal. "Simulated binary crossover for continuous search space."
+            Complex systems 9.2 (1995): 115-148.
 
     >>> from leap_ec.individual import Individual
     >>> from leap_ec.ops import naive_cyclic_selection

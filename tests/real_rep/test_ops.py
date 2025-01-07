@@ -184,7 +184,6 @@ def test_crossover_sbx1():
     # Also test that the values are different at all
     assert np.all(samples_zero != samples_one)
 
-
 @pytest.mark.stochastic
 def test_crossover_sbx2():
     """If we apply sbx with guaranteed swap or no-swap, the children
