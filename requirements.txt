@@ -22,7 +22,7 @@ nbformat
 networkx==2.8.4
 numpy==1.23.5
 pandas==1.4.1
-Pillow==9.4.0
+Pillow==10.0.1
 pytest
 pytest-cov
 python-coveralls
