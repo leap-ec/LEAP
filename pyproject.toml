@@ -1,19 +1,15 @@
 [build-system]
-requires = [
-    "setuptools>=42",
-    "wheel"
-]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "leap_ec"
-version = "0.0.1"  # Replace this with your actual version
 description = "A general purpose Library for Evolutionary Algorithms in Python."
 readme = "README.md"
 license = { text = "Academic Free License (AFL)" }
 authors = [
     { name = "Mark Coletti", email = "mcoletti@gmail.com" },
-    { name = "Eric Scott" },
+    { name = "Eric Scott", email = "escott@mitre.orgb" },
     { name = "Jeff Bassett" }
 ]
 classifiers = [
@@ -26,17 +22,17 @@ keywords = ["evolutionary algorithms", "optimization", "python"]
 homepage = "https://github.com/AureumChaos/LEAP"
 
 [project.dependencies]
-dask = "*"
-distributed = "*"
-docopt = "*"
-matplotlib = "*"
-networkx = "*"
-numpy = "*"
-omegaconf = "*"
-pandas = "*"
-rich = "*"
-scipy = "*"
-toolz = "*"
+dask = ">=2023.9.1"
+distributed = ">=2023.9.1"
+docopt = "~0.6.2"
+matplotlib = "~3.7.0"
+networkx = "~3.0"
+numpy = "~2.0"
+omegaconf = "~2.3.0"
+pandas = "~1.5.0"
+rich = "~13.0.0"
+scipy = "~1.11.2"
+toolz = "~0.12.0"
 
 [project.optional-dependencies]
 development = [
@@ -44,6 +40,9 @@ development = [
     "coveralls",
     "flake8",
     "gymnasium",
+    "ipython",
+    "ipython_genutils",
+    "ipywidgets",
     "jupyter",
     "nbconvert",
     "nbformat",
@@ -55,3 +54,16 @@ development = [
     "sphinx",
     "sphinx_rtd_theme"
 ]
+documentation = [
+    "sphinx",
+    "sphinx_rtd_theme",
+    "sphinxcontrib-applehelp",
+    "sphinxcontrib-devhelp",
+    "sphinxcontrib-htmlhelp",
+    "sphinxcontrib-jsmath",
+    "sphinxcontrib-qthelp",
+    "sphinxcontrib-serializinghtml"
+]
+
+[tool.hatch.version]
+path = "leap_ec/__version__.py"
