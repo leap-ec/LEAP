@@ -1,0 +1,57 @@
+[build-system]
+requires = [
+    "setuptools>=42",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "leap_ec"
+version = "0.0.1"  # Replace this with your actual version
+description = "A general purpose Library for Evolutionary Algorithms in Python."
+readme = "README.md"
+license = { text = "Academic Free License (AFL)" }
+authors = [
+    { name = "Mark Coletti", email = "mcoletti@gmail.com" },
+    { name = "Eric Scott" },
+    { name = "Jeff Bassett" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Academic Free License (AFL)",
+    "Operating System :: OS Independent"
+]
+requires-python = ">=3.7"
+keywords = ["evolutionary algorithms", "optimization", "python"]
+homepage = "https://github.com/AureumChaos/LEAP"
+
+[project.dependencies]
+dask = "*"
+distributed = "*"
+docopt = "*"
+matplotlib = "*"
+networkx = "*"
+numpy = "*"
+omegaconf = "*"
+pandas = "*"
+rich = "*"
+scipy = "*"
+toolz = "*"
+
+[project.optional-dependencies]
+development = [
+    "click",
+    "coveralls",
+    "flake8",
+    "gymnasium",
+    "jupyter",
+    "nbconvert",
+    "nbformat",
+    "Pillow",
+    "pytest",
+    "pytest-cov",
+    "python-coveralls",
+    "seaborn",
+    "sphinx",
+    "sphinx_rtd_theme"
+]
