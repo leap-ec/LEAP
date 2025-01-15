@@ -7,7 +7,6 @@ help:
 	@echo "#	source venv/bin/activate	Activate it"
 	@echo \#
 	@echo "#	make setup			Install LEAP & minimal dependencies"
-	@echo "#	make depend			Install test/optional dependencies"
 	@echo "#	make doc			Build docs (in docs/build/html/)"
 	@echo "#	make dist			Create package (i.e. for PyPI)"
 	@echo \#
@@ -30,7 +29,10 @@ venv:
 
 .PHONY: doc setup test test-fast test-slow kernel test-jupyter clean
 
-doc:
+docs-dependencies:
+	pip install .[documentation]
+
+doc: docs-dependencies
 	pip install -r docs/requirements.txt
         # The apidoc call is long because we need to tell it to
         # use the venv's version of sphinx-build
@@ -39,16 +41,16 @@ doc:
 
 setup:
 	pip install -e .
-	pip install -r test_requirements.txt
 
-depend:
-	pip install -r requirements_freeze.txt
 
 dist:
 	pip install setuptools wheel
 	python setup.py sdist bdist_wheel
 
-test:
+test-dependencies:
+	pip install .[development]
+
+test: test-dependencies
 	# Default options are configured in pytest.ini
 	# Skip jupyter tests, because they only work if the kernel is configured manually
 	python -m pytest -m "not jupyter"
