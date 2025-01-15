@@ -18,7 +18,7 @@ jobs:
     strategy:
       max-parallel: 5
       matrix:
-        python_version: [ '3.8', '3.9', '3.10' ]
+        python_version: [ '3.8', '3.9', '3.10', '3.11' ]
         os: [ ubuntu-latest, windows-latest, macOS-latest ]
 
     steps:
@@ -29,13 +29,13 @@ jobs:
         python-version: ${{ matrix.python_version }}
     - name: Install package dependencies
       run: |
-        pip install -r requirements.txt
+        pip install  .[development]
     - name: Install package
       run: |
         pip install .
 #    - name: Install test dependencies
 #      run: |
-#        pip install -r test_requirements.txt
+#        pip install  .[development]
     - name: Test not jupyter, fast pytest suite using pytest
       run: |
         python -m pytest -m "not slow and not stochastic and not jupyter"
