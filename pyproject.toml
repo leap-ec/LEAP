@@ -64,6 +64,7 @@ documentation = [
     "sphinxcontrib-htmlhelp",
     "sphinxcontrib-jsmath",
     "sphinxcontrib-qthelp",
+    "sphinxcontrib-bibtex",
     "sphinxcontrib-serializinghtml"
 ]
 

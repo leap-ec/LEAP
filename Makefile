@@ -33,7 +33,6 @@ docs-dependencies:
 	pip install .[documentation]
 
 doc: docs-dependencies
-	pip install -r docs/requirements.txt
         # The apidoc call is long because we need to tell it to
         # use the venv's version of sphinx-build
 	sphinx-apidoc -f -o docs/source/ leap_ec/ SPHINXBUILD='python $(shell which sphinx-build)'
@@ -55,17 +54,17 @@ test: test-dependencies
 	# Skip jupyter tests, because they only work if the kernel is configured manually
 	python -m pytest -m "not jupyter"
 
-test-fast:
+test-fast: test-dependencies
 	python -m pytest -m "not slow and not jupyter and not stochastic"
 
-test-slow:
+test-slow: test-dependencies
 	python -m pytest -m slow
 
-kernel:
+kernel: test-dependencies
 	# Setup a kernel for Jupyter with the name test-jupyter uses to find it
 	python -m ipykernel install --user --name="LEAP_venv"
 
-test-jupyter:
+test-jupyter: test-dependencies
 	# Won't work unless you have a 'LEAP_venv' kernel
 	python -m pytest -m jupyter
 
