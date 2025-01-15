@@ -44,15 +44,6 @@ leap\_ec.decoder module
    :undoc-members:
    :show-inheritance:
 
-leap\_ec.distrib module
------------------------
-
-.. automodule:: leap_ec.distrib
-   :members:
-   :noindex:
-   :undoc-members:
-   :show-inheritance:
-
 leap\_ec.global\_vars module
 ----------------------------
 
@@ -66,15 +57,6 @@ leap\_ec.individual module
 
 .. automodule:: leap_ec.individual
    :members:
-   :undoc-members:
-   :show-inheritance:
-
-leap\_ec.multiobjective module
-------------------------------
-
-.. automodule:: leap_ec.multiobjective
-   :members:
-   :noindex:
    :undoc-members:
    :show-inheritance:
 
