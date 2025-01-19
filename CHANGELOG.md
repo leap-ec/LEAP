@@ -7,6 +7,7 @@ Being a terse compilation by version of changes.
 
  * New features
    * Upgraded NumPy compatibility to 2.x (ex. to handle printing floats in light of NEP51, removal of np.NINF, etc.)
+   * Uses `pyproject.toml` for build configuration instead of `setup.py`
 
  * API changes
    * Remove `numpy_as_list` parameters for probes
