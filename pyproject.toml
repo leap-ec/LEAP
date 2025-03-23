@@ -22,8 +22,8 @@ requires-python = ">=3.9"
 keywords = ["evolutionary algorithms", "optimization", "python"]
 homepage = "https://github.com/AureumChaos/LEAP"
 dependencies = [
-    "dask>=2024.9.1",
-    "distributed>=2024.9.1",
+    "dask",
+    "distributed",
     "docopt~=0.6.2",
     "matplotlib",
     "networkx~=3.0",
