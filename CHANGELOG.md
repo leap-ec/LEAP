@@ -3,7 +3,15 @@
 Being a terse compilation by version of changes.
 
 
-## 0.9dev, in progress
+## 0.9dev, in progress on develop branch
+
+* In progress
+  * Support for CMA-ES
+  * Support for grammatical evolution (GE)
+  * Support for parallel and distributed island models
+
+
+## 0.8.2, 3/23/2025, maintenance release
 
  * New features
    * Upgraded NumPy compatibility to 2.x (ex. to handle printing floats in light of NEP51, removal of np.NINF, etc.)
@@ -19,6 +27,8 @@ Being a terse compilation by version of changes.
  * Bugfixes
    * Update notebooks to use `%matplotlib ipympl` in place of the outdated `%matplotlib notebook`
    * Fixed erroneous passing of `hard_bounds` parameters in some notebooks, where `bounds` is the correct name
+   * Other minor fixes and comment tweaks
+   * Updates of third party dependencies
 
 
 ## 0.8.1, 10/10/2023
