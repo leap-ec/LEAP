@@ -2,9 +2,28 @@
 
 Being a terse compilation by version of changes.
 
+
+## 0.9dev, in progress
+
+ * New features
+   * Upgraded NumPy compatibility to 2.x (ex. to handle printing floats in light of NEP51, removal of np.NINF, etc.)
+   * Uses `pyproject.toml` for build configuration instead of `setup.py`
+
+ * API changes
+   * Remove `numpy_as_list` parameters for probes
+   * Remove `expected_num_mutations` from `segmented_rep.ops.apply_mutation()`; mutation rates should now be set directly on nested operators
+   * Mutation operators that take an `expected_num_mutations` now give a clear error message if this is greater than the genome size
+   * Moved `print_population` to `probe` from `util`
+
+
+ * Bugfixes
+   * Update notebooks to use `%matplotlib ipympl` in place of the outdated `%matplotlib notebook`
+   * Fixed erroneous passing of `hard_bounds` parameters in some notebooks, where `bounds` is the correct name
+
+
 ## 0.8.1, 10/10/2023
 
- * New Features
+ * New features
    * Added asynchronous NSGA-II, which is in `leap_ec.distrib.asynchronous`; 
      note that the API may change in the future
 
@@ -22,9 +41,10 @@ Being a terse compilation by version of changes.
      `hard_bounds` and `bounds`
    * Made improvements to ReadTheDocs documentation.
 
+
 ## 0.8.0, 4/14/2023
 
- * New Features
+ * New features
    * Added `FitnessOffsetProblem` convenience wrapper to the `problem` module
    * Added `ParabaloidProblem` and `QuadraticFamilyProblem` to the `real_rep.problems` module
    * CGP now supports auxiliary constant parameters on each node via `CGPWithParametersDecoder`

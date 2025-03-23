@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "leap_ec"
+description = "A general purpose Library for Evolutionary Algorithms in Python."
+readme = "README.md"
+dynamic = ["version"]
+license = { text = "Academic Free License (AFL)" }
+authors = [
+    { name = "Mark Coletti", email = "mcoletti@gmail.com" },
+    { name = "Eric Scott", email = "escott@mitre.orgb" },
+    { name = "Jeff Bassett" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Academic Free License (AFL)",
+    "Operating System :: OS Independent"
+]
+requires-python = ">=3.7"
+keywords = ["evolutionary algorithms", "optimization", "python"]
+homepage = "https://github.com/AureumChaos/LEAP"
+dependencies = [
+    "dask>=2023.9.1",
+    "distributed>=2023.9.1",
+    "docopt~=0.6.2",
+    "matplotlib",
+    "networkx~=3.0",
+    "numpy~=2.0",
+    "omegaconf~=2.3.0",
+    "pandas",
+    "rich~=13.0.0",
+    "scipy",
+    "toolz~=0.12.0"
+]
+
+
+[project.optional-dependencies]
+development = [
+    "click",
+    "coveralls",
+    "flake8",
+    "gymnasium",
+    "ipython",
+    "ipython_genutils",
+    "ipywidgets",
+    "jupyter",
+    "nbconvert",
+    "nbformat",
+    "Pillow",
+    "pytest",
+    "pytest-cov",
+    "python-coveralls",
+    "seaborn",
+    "sphinx",
+    "sphinx_rtd_theme"
+]
+documentation = [
+    "sphinx",
+    "sphinx_rtd_theme",
+    "sphinxcontrib-applehelp",
+    "sphinxcontrib-devhelp",
+    "sphinxcontrib-htmlhelp",
+    "sphinxcontrib-jsmath",
+    "sphinxcontrib-qthelp",
+    "sphinxcontrib-bibtex",
+    "sphinxcontrib-serializinghtml"
+]
+
+[tool.hatch.version]
+path = "leap_ec/__version__.py"

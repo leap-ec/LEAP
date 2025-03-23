@@ -27,21 +27,6 @@ def wrap_curry(f):
 
 
 ###############################
-# Function print_population
-###############################
-def print_population(population, generation):
-    """ Convenience function for pretty printing a population that's
-    associated with a given generation
-
-    :param population:
-    :param generation:
-    :return: None
-    """
-    for individual in population:
-        print(generation, individual.genome, individual.fitness)
-
-
-###############################
 # Function is_sequence
 ###############################
 def is_sequence(obj):

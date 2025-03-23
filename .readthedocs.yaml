@@ -19,7 +19,13 @@ formats:
 
 # Optionally set the version of Python and requirements required to build your docs
 python:
-  version: 3.7
   install:
     - requirements: docs/requirements.txt
 
+build:
+  os: ubuntu-22.04
+  tools:
+    python: "3.7"
+    nodejs: "18"
+    rust: "1.64"
+    golang: "1.19"

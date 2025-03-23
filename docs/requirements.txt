@@ -2,3 +2,8 @@ matplotlib
 sphinx_rtd_theme
 sphinxcontrib-bibtex
 toolz
+distributed
+pandas
+scipy
+click
+networkx

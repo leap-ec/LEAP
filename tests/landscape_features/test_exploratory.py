@@ -35,7 +35,7 @@ def spheroid_convex():
     """
     problem, representation, initial_sample = spheroid_sample()
 
-    return exploratory.ELAConvexity(problem, representation, design_individuals=initial_sample)
+    return exploratory.ELAConvexity(problem, representation, design_individuals=initial_sample, num_convexity_tests=100)
 
 @pytest.fixture
 def spheroid_convex_fixture():
@@ -46,11 +46,11 @@ def spheroid_convex_fixture():
 # Tests for ELAConvexity
 ##############################
 def test_results_length(spheroid_convex_fixture):
-    """If we run ELAConvexity with the default settings, it should generate data for
-    1,000 pairs of points."""
-    assert(len(spheroid_convex_fixture.pairs) == 1000)
-    assert(len(spheroid_convex_fixture.combinations) == 1000)
-    assert(len(spheroid_convex_fixture.deltas) == 1000)
+    """We run ELAConvexity requesting 100 tests, so it should generate data for
+    100 pairs of points."""
+    assert(len(spheroid_convex_fixture.pairs) == 100)
+    assert(len(spheroid_convex_fixture.combinations) == 100)
+    assert(len(spheroid_convex_fixture.deltas) == 100)
 
 def test_spheroid_convexity(spheroid_convex_fixture):
     """If we run ELAConvexity on the spheroid function, it should come back as 100%

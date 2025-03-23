@@ -148,6 +148,20 @@ point values with NaNs leads to undefined behavior.  In which case it's advisabl
 subclass that overrides this behavior and assigns, say, MAXINT or -MAXINT (as appropriate for maximizing or
 minimizing objectives) for fitnesses where there was a problem in performing the fitness evaluation.
 
+Asynchronous steady-state multiobjective optimization
+-----------------------------------------------------
+
+LEAP also supports a distributed asynchronous-steady state version of NSGA-II.  This is useful for HPC clusters
+where it is desirable to have a large number of workers evaluating individuals in parallel.  Moreover, this allows for
+minimizing worker idle time in that new offspring are allocated to workers that finished evaluating their previous
+individuals.  This is in contrast to the traditional synchronous version of NSGA-II where all workers must finish evaluating their
+individuals before the next generation can be created; within an HPC context this would mean that some workers would
+be idle while waiting for others to finish, thus wasting computational resources. As with the other distributed support
+in LEAP, this functionality is implemented using Dask, and so a Dask client must be provided.
+
+The asynchronous steady-state version of NSGA-II is implemented in :py:func:`leap_ec.multiobjective.asynchronous.steady_state_nsga_2`.
+An example of use is in the `examples/distributed/multiobjective_async_distributed.ipynb` notebook.
+
 
 References
 ----------

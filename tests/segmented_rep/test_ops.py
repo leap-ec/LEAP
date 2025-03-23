@@ -35,10 +35,10 @@ def in_possible_outcomes(test_seq, possible_outcomes):
 # Tests for apply_mutation()
 ##############################
 def test_apply_mutation():
-    """Applying segment-wise mutation operators with expected_num_mutations=len(genome) should
-    result in every gene of every segment being mutated."""
-    mutation_op = apply_mutation(mutator=genome_mutate_bitflip,
-                                 expected_num_mutations=4)
+    """Applying segment-wise mutation operators when the nested operator has
+    expected_num_mutations=len(genome) should result in every gene of every
+    segment being mutated."""
+    mutation_op = apply_mutation(mutator=genome_mutate_bitflip(expected_num_mutations=2))
     original = Individual([np.array([0, 0]), np.array([1, 1])])
     mutated = next(mutation_op(iter([original])))
 
@@ -47,18 +47,16 @@ def test_apply_mutation():
 
 
 def test_apply_mutation_uniform_int():
-    """ Same test, but with integer mutation """
-    mutator = individual_mutate_randint(bounds=[(0, 10), (100, 110)])
+    """ Same test, but with integer mutation.  Setting the bounds artificially small
+    to make the resulting mutations choose deterministic values for us to test."""
+    mutator = individual_mutate_randint(bounds=[(10, 10), (110, 110)], expected_num_mutations=2)
 
-    mutation_op = apply_mutation(mutator=mutator,
-                                 expected_num_mutations=2)
+    mutation_op = apply_mutation(mutator=mutator)
     original = Individual([np.array([0, 100]), np.array([1, 101])])
     mutated = next(mutation_op(iter([original])))
 
-    # TODO add checks (didn't add at this time because we wanted to ensure
-    # that this would even generate valid behavior w/o an exception.
-
-    pass
+    assert np.all(mutated.genome[0] == [10, 110]) \
+           and np.all(mutated.genome[1] == [10, 110])
 
 
 def test_apply_mutation_binomial_int():

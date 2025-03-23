@@ -1,4 +1,7 @@
 0.9
+    Robert Patton for being a documentation guinea pig. Documentation added for probes and min()/max() for minimization problems.
+
+0.8.1
     Lucas McCombs for improvements to crossover operators, parent/offspring tracking, plotting, and more.
 
 0.8

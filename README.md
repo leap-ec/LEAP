@@ -2,7 +2,7 @@
 
 *Written by Dr. Jeffrey K. Bassett, Dr. Mark Coletti, and Dr. Eric Scott*
 
-[![Python Package using Conda](https://github.com/AureumChaos/LEAP/actions/workflows/pytest-standard-fast.yml/badge.svg?branch=master)](https://github.com/AureumChaos/LEAP/actions/workflows/pytest-standard-fast.yml)
+[![Python Package using Conda](https://github.com/AureumChaos/LEAP/actions/workflows/pytest-standard-fast.yml/badge.svg)](https://github.com/AureumChaos/LEAP/actions/workflows/pytest-standard-fast.yml)
 [![Coverage Status](https://coveralls.io/repos/github/AureumChaos/LEAP/badge.svg?branch=master)](https://coveralls.io/github/AureumChaos/LEAP?branch=master)
 [![Documentation Status](https://readthedocs.org/projects/leap-gmu/badge/?version=latest)](https://leap-gmu.readthedocs.io/en/latest/?badge=latest)
 

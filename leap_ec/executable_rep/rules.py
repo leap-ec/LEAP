@@ -143,7 +143,8 @@ class PittRulesDecoder(Decoder):
         produces bounds that restrict the `low` and `high` value of each condition's
         range between 0 and 1.5:
 
-        >>> decoder.condition_bounds
+        >>> with np.printoptions(legacy="1.25"):  # Pretty-print numpy arrays
+        ...     decoder.condition_bounds
         [(0.0, 1.5), (0.0, 1.5), (0.0, 1.5), (0.0, 1.5), (0.0, 1.5), (0.0, 1.5)]
 
         """
@@ -173,7 +174,8 @@ class PittRulesDecoder(Decoder):
 
         Bounds are inclusive, so they look like this:
 
-        >>> decoder.action_bounds
+        >>> with np.printoptions(legacy="1.25"):  # Pretty-print numpy arrays
+        ...     decoder.action_bounds
         [(0, 3)]
         """
         # XXX This only works with a one-dimensional Discrete input space;
@@ -187,7 +189,8 @@ class PittRulesDecoder(Decoder):
         >>> in_ = spaces.Box(low=0, high=1.0, shape=(1, 3), dtype=np.float32)
         >>> out_ = spaces.Discrete(4)
         >>> decoder = PittRulesDecoder(input_space=in_, output_space=out_)
-        >>> decoder.bounds(num_rules=4)
+        >>> with np.printoptions(legacy="1.25"):  # Pretty-print numpy arrays
+        ...     decoder.bounds(num_rules=4)
         [[(0.0, 1.0), (0.0, 1.0), (0.0, 1.0), (0.0, 1.0), (0.0, 1.0), (0.0, 1.0), (0, 3)], [(0.0, 1.0), (0.0, 1.0), (0.0, 1.0), (0.0, 1.0), (0.0, 1.0), (0.0, 1.0), (0, 3)], [(0.0, 1.0), (0.0, 1.0), (0.0, 1.0), (0.0, 1.0), (0.0, 1.0), (0.0, 1.0), (0, 3)], [(0.0, 1.0), (0.0, 1.0), (0.0, 1.0), (0.0, 1.0), (0.0, 1.0), (0.0, 1.0), (0, 3)]]
         """
         # TODO memory

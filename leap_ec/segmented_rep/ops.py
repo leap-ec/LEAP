@@ -17,17 +17,17 @@ from leap_ec.ops import compute_expected_probability, iteriter_op
 @wrap_curry
 @iteriter_op
 def apply_mutation(next_individual: Iterator,
-                   mutator: Callable[[list, float], list],
-                   expected_num_mutations: float = 1.0) -> Iterator:
+                   mutator: Callable[[list, float], list]) -> Iterator:
     """
     This expects next_individual to have a segmented representation; i.e.,
-    a test_sequence of sequences.  `mutator` will be applied to each
-    sub-test_sequence with the expected probability.  The expected probability
-    applies to *all* the sequences, and defaults to a single mutation among
-    all components, on average.
+    a test_sequence of sequences.  `mutator` will be applied separately to
+    each sub-test_sequence.
 
     >>> from leap_ec.binary_rep.ops import genome_mutate_bitflip
-    >>> mutation_op = apply_mutation(mutator=genome_mutate_bitflip)
+    >>> mutation_op = apply_mutation(
+    ...     mutator=genome_mutate_bitflip(
+    ...                 expected_num_mutations=0.5
+    ...  ))
     >>> import numpy as np
 
     >>> from leap_ec.individual import Individual
@@ -38,20 +38,14 @@ def apply_mutation(next_individual: Iterator,
     :param mutator: function to be applied to each segment in the
         individual's genome; first argument is a segment, the second the
         expected probability of mutating each segment element.
-    :param expected: expected mutations on average in [0.0,1.0]
     :return: yielded mutated individual
     """
     while True:
         individual = next(next_individual)
 
-        # compute expected probability of mutation _per segment_
-        per_segment_expected_prob = compute_expected_probability(
-            expected_num_mutations, individual.genome)
-
         # Apply mutation function using the expected probability to create a
         # new test_sequence of sequences to be assigned to the genome.
-        mutated_genome = [mutator(segment,
-                                  expected_num_mutations=per_segment_expected_prob)
+        mutated_genome = [mutator(segment)
                           for segment in individual.genome]
 
         individual.genome = mutated_genome

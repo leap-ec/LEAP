@@ -1466,6 +1466,8 @@ def compute_expected_probability(expected_num_mutations: float,
     :param individual_genome: genome for which to compute the probability
     :return: the corresponding probability of mutation
     """
+    if expected_num_mutations > len(individual_genome):
+        raise ValueError(f"Tried to compute a mutation probability for a parameter of expected_num_mutations={expected_num_mutations}, but this is greater than the genome length, {len(individual_genome)}, which is not allowed.")
     return 1.0 / len(individual_genome) * expected_num_mutations
 
 

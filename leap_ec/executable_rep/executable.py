@@ -131,7 +131,7 @@ class ArgmaxExecutable(Executable):
     [0, 1, 2]
 
     >>> wrapped([1, 1])
-    2
+    np.int64(2)
     """
     def __init__(self, wrapped_executable):
         assert(wrapped_executable is not None)

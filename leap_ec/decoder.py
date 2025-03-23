@@ -63,14 +63,15 @@ class Decoder(abc.ABC):
     But now :py:class:`~leap.Individual` also has everything it needs to
     evaluate its own fitness:
 
-    >>> ind.evaluate()
-    836.4453949...
+    >>> import math
+    >>> math.isclose(ind.evaluate(), 836.4453949)
+    True
 
     Calling `evaluate()` also has the side effect of setting the fitness
     attribute:
 
-    >>> ind.fitness
-    836.4453949...
+    >>> math.isclose(ind.fitness, 836.4453949)
+    True
 
     """
 

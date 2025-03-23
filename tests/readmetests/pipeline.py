@@ -12,7 +12,7 @@ import leap_ec.ops as ops
 from leap_ec.binary_rep.problems import MaxOnes
 from leap_ec.binary_rep.initializers import create_binary_sequence
 from leap_ec.binary_rep.ops import mutate_bitflip
-from leap_ec import util
+from leap_ec import util, probe
 
 # create initial rand population of 5 individuals
 parents = Individual.create_population(5,
@@ -23,7 +23,7 @@ parents = Individual.create_population(5,
 parents = Individual.evaluate_population(parents)
 
 # print initial, random population
-util.print_population(parents, generation=0)
+probe.print_population(parents, generation=0)
 
 # generation_counter is an optional convenience for generation tracking
 generation_counter = util.inc_generation(context=context)
@@ -41,4 +41,4 @@ while generation_counter.generation() < 6:
 
     generation_counter()  # increment to the next generation
 
-    util.print_population(parents, context['leap']['generation'])
+    probe.print_population(parents, context['leap']['generation'])
