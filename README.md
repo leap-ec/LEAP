@@ -2,7 +2,7 @@
 
 *Written by Dr. Jeffrey K. Bassett, Dr. Mark Coletti, and Dr. Eric Scott*
 
-[![Python Package using Conda](https://github.com/AureumChaos/LEAP/actions/workflows/pytest-standard-fast.yml/badge.svg)](https://github.com/AureumChaos/LEAP/actions/workflows/pytest-standard-fast.yml)
+[![Python Package using Conda](https://github.com/leap-ec/LEAP/actions/workflows/pytest-standard-fast.yml/badge.svg)](https://github.com/AureumChaos/LEAP/actions/workflows/pytest-standard-fast.yml)
 [![Coverage Status](https://coveralls.io/repos/github/AureumChaos/LEAP/badge.svg?branch=master)](https://coveralls.io/github/AureumChaos/LEAP?branch=master)
 [![Documentation Status](https://readthedocs.org/projects/leap-gmu/badge/?version=latest)](https://leap-gmu.readthedocs.io/en/latest/?badge=latest)
 
@@ -157,7 +157,7 @@ while generation_counter.generation() < 6:
 A number of LEAP demo applications are found in the the `example/` directory of the github repository:
 
 ```bash
-git clone https://github.com/AureumChaos/LEAP.git
+git clone https://github.com/leap-ec/LEAP.git
 python LEAP/examples/advanced/island_models.py
 ```
 
@@ -184,7 +184,7 @@ since building the docs involves generating some plots and executing some exampl
 To install a source distribution of LEAP, clone the repo:
 
 ```
-git clone https://github.com/AureumChaos/LEAP.git
+git clone https://github.com/leap-ec/LEAP.git
 ```
 
 And use the Makefile to install the package:
