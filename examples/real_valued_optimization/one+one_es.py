@@ -62,9 +62,6 @@ if __name__ == '__main__':
 
                                  ops.cyclic_selection,
                                  ops.clone,
-                                 # Apply binomial mutation: this is a lot like
-                                 # additive Gaussian mutation, but adds an integer
-                                 # value to each gene
                                  mutate_gaussian(std=0.1, bounds=[problem.bounds]*l,
                                                  expected_num_mutations=1),
                                  ops.evaluate,

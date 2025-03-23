@@ -1,7 +1,7 @@
 This sub-package is for LEAP support for multiobjective optimization.
 
 We presume that fitnesses, which are normally scalars, are vectors where 
-each element corresponds to a single objective.  Moreover, we presume that 
+each element corresponds to a single objective.  Moroever, we presume that 
 numpy arrays are used to represent these vectors.
 
 As a side-effect some operators will add state to individuals as they pass 
