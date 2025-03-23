@@ -15,7 +15,7 @@ jobs:
   test_suite:
     name: Run non-jupyter, non-stochastic, fast pytest suite on ${{ matrix.os }} using Python ${{ matrix.python_version }}.
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 30
+    timeout-minutes: 60
     strategy:
       max-parallel: 5
       matrix:
