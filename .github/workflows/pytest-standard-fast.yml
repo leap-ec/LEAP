@@ -12,6 +12,9 @@ env:
 
 
 jobs:
+  test:
+    timeout-minutes: 30
+
   test_suite:
     name: Run non-jupyter, non-stochastic, fast pytest suite on ${{ matrix.os }} using Python ${{ matrix.python_version }}.
     runs-on: ${{ matrix.os }}
