@@ -18,7 +18,7 @@ classifiers = [
     "License :: OSI Approved :: Academic Free License (AFL)",
     "Operating System :: OS Independent"
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 keywords = ["evolutionary algorithms", "optimization", "python"]
 homepage = "https://github.com/AureumChaos/LEAP"
 #dependencies = [
