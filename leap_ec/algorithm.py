@@ -48,8 +48,8 @@ def generational_ea(max_generations: int,
         algorithm for. Can pass in float('Inf') to run forever or until
         the `stop` condition is reached.
     :param int pop_size: Size of the initial population
-    :param int stop: A function that accepts a population and
-        returns True iff it's time to stop evolving.
+    :param Callable[[Iterable[Individual]], bool] stop: A function that accepts
+        a population and returns True if it's time to stop evolving.
     :param `Problem` problem: the Problem that should be used to evaluate
         individuals' fitness
     :param representation: How the problem is represented in individuals
@@ -288,7 +288,6 @@ def multi_population_ea(max_generations, num_populations, pop_size, problem,
 
         generation_counter()  # Increment to the next generation
 
-
     return pops
 
 
@@ -349,9 +348,9 @@ def random_search(evaluations, problem, representation, pipeline,
     # Use the representation to sample a new individual to start us off
     individual = representation.create_individual(problem=problem)
 
-    individual.evaluate() # Figure out where they are in solution space
+    individual.evaluate()  # Figure out where they are in solution space
 
-    trajectory = [individual] # start with this guy as step 0 in random walk
+    trajectory = [individual]  # start with this guy as step 0 in random walk
 
     # Set up an evaluation counter that records the current generation to
     # context; start at 1 to account for individual we already created.
