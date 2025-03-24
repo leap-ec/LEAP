@@ -15,6 +15,7 @@ Being a terse compilation by version of changes.
 
  * New features
    * Upgraded NumPy compatibility to 2.x (ex. to handle printing floats in light of NEP51, removal of np.NINF, etc.)
+      * Unfortunately, to support this change, we have had to drop support for earlier versions of python. We now only formally support python 3.11 -- 3.13.
    * Uses `pyproject.toml` for build configuration instead of `setup.py`
 
  * API changes
