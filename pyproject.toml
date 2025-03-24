@@ -18,12 +18,26 @@ classifiers = [
     "License :: OSI Approved :: Academic Free License (AFL)",
     "Operating System :: OS Independent"
 ]
-requires-python = ">=3.7"
+requires-python = ">=3.9"
 keywords = ["evolutionary algorithms", "optimization", "python"]
 homepage = "https://github.com/AureumChaos/LEAP"
+#dependencies = [
+#    "dask",
+#    "distributed",
+#    "docopt~=0.6.2",
+#    "matplotlib",
+#    "networkx~=3.0",
+#    "numpy~=2.0",
+#    "omegaconf~=2.3.0",
+#    "pandas",
+#    "rich~=13.0.0",
+#    "scipy",
+#    "toolz~=0.12.0"
+#]
+
 dependencies = [
-    "dask>=2023.9.1",
-    "distributed>=2023.9.1",
+    "dask~=2024.6",
+    "distributed~=2024.6",
     "docopt~=0.6.2",
     "matplotlib",
     "networkx~=3.0",
