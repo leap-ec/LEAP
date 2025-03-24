@@ -39,7 +39,7 @@ dependencies = [
     "dask~=2024.1.0",
     "distributed~=2024.1.0",
     "docopt~=0.6.2",
-    "matplotlib~=3.8.0",
+    "matplotlib",
     "networkx~=3.0",
     "numpy~=2.0",
     "omegaconf~=2.3.0",
