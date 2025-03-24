@@ -43,7 +43,7 @@ dependencies = [
     "networkx~=3.0",
     "numpy~=2.0",
     "omegaconf~=2.3.0",
-    "pandas~=2.1.0",
+    "pandas",
     "rich~=13.0.0",
     "scipy~=1.11.0",
     "toolz~=0.12.0"
