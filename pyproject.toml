@@ -36,8 +36,8 @@ homepage = "https://github.com/AureumChaos/LEAP"
 #]
 
 dependencies = [
-    "dask~=2024.6",
-    "distributed~=2024.6",
+    "dask==2024.6.2",
+    "distributed==2024.6.2",
     "docopt~=0.6.2",
     "matplotlib",
     "networkx~=3.0",
