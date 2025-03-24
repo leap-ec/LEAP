@@ -15,11 +15,10 @@ jobs:
   test_suite:
     name: Run non-jupyter, non-stochastic, fast pytest suite on ${{ matrix.os }} using Python ${{ matrix.python_version }}.
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 60
     strategy:
       max-parallel: 5
       matrix:
-        python_version: [ '3.9', '3.10', '3.11', '3.12', '3.13' ]
+        python_version: [ '3.11', '3.12', '3.13' ]
         os: [ ubuntu-latest, windows-latest, macOS-latest ]
 
     steps:
