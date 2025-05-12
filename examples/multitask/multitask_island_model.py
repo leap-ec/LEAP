@@ -9,6 +9,7 @@ import sys
 from matplotlib import pyplot as plt
 import networkx as nx
 
+import leap_ec.island.ops
 from leap_ec import Individual, Representation, context, test_env_var
 from leap_ec import ops, probe
 from leap_ec.algorithm import multi_population_ea
@@ -132,11 +133,11 @@ if __name__ == '__main__':
                                  mutate_gaussian(std=0.03, expected_num_mutations=1, bounds=bounds),
                                  ops.evaluate,
                                  ops.pool(size=pop_size),
-                                 ops.migrate(topology=topology,
-                                             emigrant_selector=ops.tournament_selection,
-                                             replacement_selector=ops.random_selection,
-                                             migration_gap=5,
-                                             customs_stamp=problem_stamp(problems)),
+                                 leap_ec.island.ops.migrate(topology=topology,
+                                                            emigrant_selector=ops.tournament_selection,
+                                                            replacement_selector=ops.random_selection,
+                                                            migration_gap=5,
+                                                            customs_stamp=problem_stamp(problems)),
                                  probe.FitnessStatsCSVProbe(stream=sys.stdout,
                                         extra_metrics={ 'island': get_island(context) })
                              ],

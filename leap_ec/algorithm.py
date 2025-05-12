@@ -193,7 +193,7 @@ def multi_population_ea(max_generations, num_populations, pop_size, problem,
     that solves a :py:class:`leap_ec.real_rep.problems.SchwefelProblem` using a
     real-vector representation:
 
-    >>> import networkx as nx
+import leap_ec.island.ops    >>> import networkx as nx
     >>> from leap_ec.algorithm import multi_population_ea
     >>> from leap_ec import ops
     >>> from leap_ec.real_rep.ops import mutate_gaussian
@@ -228,7 +228,7 @@ def multi_population_ea(max_generations, num_populations, pop_size, problem,
     ...                                                bounds=problem.bounds),
     ...                                ops.evaluate,
     ...                                ops.pool(size=pop_size),
-    ...                                ops.migrate(topology=topology,
+    ...                                leap_ec.island.ops.migrate(topology=topology,
     ...                                            emigrant_selector=ops.tournament_selection,
     ...                                            replacement_selector=ops.random_selection,
     ...                                            migration_gap=5)

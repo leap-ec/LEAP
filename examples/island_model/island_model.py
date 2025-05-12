@@ -11,6 +11,7 @@ from rich import print
 from matplotlib import pyplot as plt
 import networkx as nx
 
+import leap_ec.island.ops
 from leap_ec import Individual, Representation, context, test_env_var, \
     leap_logger_name
 from leap_ec import ops, probe
@@ -141,11 +142,11 @@ if __name__ == '__main__':
                                          bounds=problem.bounds),
                                      ops.evaluate,
                                      ops.pool(size=pop_size),
-                                     ops.migrate(topology=topology,
-                                                 emigrant_selector=ops.tournament_selection,
-                                                 replacement_selector=ops.random_selection,
-                                                 migration_gap=50,
-                                                 metric=ops.migration_metric(
+                                     leap_ec.island.ops.migrate(topology=topology,
+                                                                emigrant_selector=ops.tournament_selection,
+                                                                replacement_selector=ops.random_selection,
+                                                                migration_gap=50,
+                                                                metric=leap_ec.island.ops.migration_metric(
                                                      stream=migration_file,
                                                      header=True
                                                  )),

@@ -32,9 +32,10 @@ dependencies = [
     "numpy~=2.0",
     "omegaconf~=2.3.0",
     "pandas",
+    "pytest==8.3.5",
     "rich~=13.0.0",
     "scipy",
-    "toolz~=0.12.0"
+    "toolz~=0.12.0",
 ]
 
 
