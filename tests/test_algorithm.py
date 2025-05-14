@@ -3,7 +3,7 @@
 import pytest
 
 from leap_ec import Representation, ops, context
-from leap_ec.algorithm import multi_population_ea
+from leap_ec.island.algorithm import multi_population_ea
 from leap_ec.binary_rep.initializers import create_binary_sequence
 from leap_ec.binary_rep.ops import mutate_bitflip
 from leap_ec.binary_rep.problems import MaxOnes

@@ -15,7 +15,7 @@ import leap_ec.island.ops
 from leap_ec import Individual, Representation, context, test_env_var, \
     leap_logger_name
 from leap_ec import ops, probe
-from leap_ec.algorithm import multi_population_ea
+from leap_ec.island.algorithm import multi_population_ea
 from leap_ec.real_rep.problems import SchwefelProblem
 from leap_ec.real_rep.ops import mutate_gaussian
 from leap_ec.real_rep.initializers import create_real_vector

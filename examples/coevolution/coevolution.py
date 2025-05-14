@@ -17,7 +17,7 @@ from docopt import docopt
 
 from leap_ec import Representation, test_env_var
 from leap_ec import ops
-from leap_ec.algorithm import multi_population_ea
+from leap_ec.island.algorithm import multi_population_ea
 from leap_ec.binary_rep.problems import MaxOnes
 from leap_ec.binary_rep.initializers import create_binary_sequence
 from leap_ec.binary_rep.ops import mutate_bitflip
