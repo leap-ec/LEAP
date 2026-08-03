@@ -209,3 +209,6 @@ make test-slow
 respectively.
 
 ![pytest output example](_static/pytest_output.png)
+
+# Discussion Board
+We have a github-based discussion board for LEAP related topics [here](https://github.com/leap-ec/LEAP/discussions). Please feel free to join us there for discussing new features, needed documentation improvements, or even just general evolutionary computation related topics.
