@@ -167,3 +167,21 @@ def test_AttributesCSVProbe_5(test_pop_with_attributes):
                "0,10,BLUE,ideas\n" + \
                "0,10,72.81,sleep\n"
     assert (result == expected)
+
+
+def test_AttributesCSVProbe_custom_step_name(test_pop_with_attributes):
+    """The step column can use a progress variable other than generation."""
+    stream = io.StringIO()
+    probe_context = {'leap': {'births': 42}}
+    probe = AttributesCSVProbe(['foo'], stream, context=probe_context,
+                               step_name='births')
+
+    probe(test_pop_with_attributes)
+
+    expected = "step,foo\n" + \
+               "42,GREEN\n" + \
+               "42,15\n" + \
+               "42,BLUE\n" + \
+               "42,72.81\n"
+    assert stream.getvalue() == expected
+    stream.close()

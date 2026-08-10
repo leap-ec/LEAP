@@ -415,6 +415,9 @@ class AttributesCSVProbe(op.Operator):
         all rows (ex. typically an integer, indicating the ith run out of many)
     :param context: the algorithm context we use to read the current generation
         from (so we can write it to a column)
+    :param str step_name: the name of the progress variable in ``context['leap']``
+        to write to the ``step`` column. Defaults to ``'generation'``; asynchronous
+        algorithms can use ``'births'`` instead.
 
     Individuals contain some build-in attributes (namely fitness, genome),
     and also a `dict` of additional custom attributes called, well,
@@ -467,7 +470,7 @@ class AttributesCSVProbe(op.Operator):
                  best_only=False, header=True, do_fitness=False,
                  do_genome=False,
                  notes=None, extra_metrics=None, job=None,
-                 context=context):
+                 context=context, step_name='generation'):
         assert ((stream is None) or hasattr(stream, 'write'))
         self.context = context
         self.stream = stream
@@ -480,6 +483,7 @@ class AttributesCSVProbe(op.Operator):
         self.extra_metrics = extra_metrics if extra_metrics else {}
         self.job = job
         self.do_dataframe = do_dataframe
+        self.step_name = step_name
 
         if (not do_dataframe) and stream is None:
             raise ValueError(
@@ -530,7 +534,7 @@ class AttributesCSVProbe(op.Operator):
         population of individuals and collect data from it. """
         assert (population is not None)
         assert ('leap' in self.context)
-        assert ('generation' in self.context['leap'])
+        assert (self.step_name in self.context['leap'])
 
         individuals = [max(population)] if self.best_only else population
         
@@ -546,7 +550,7 @@ class AttributesCSVProbe(op.Operator):
 
     def get_row_dict(self, ind):
         """Compute a full row of data from a given individual."""
-        row = {'step': self.context['leap']['generation']}
+        row = {'step': self.context['leap'][self.step_name]}
 
         for attr in self.attributes:
             if attr not in ind.__dict__:
