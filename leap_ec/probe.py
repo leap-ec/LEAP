@@ -546,6 +546,10 @@ class AttributesCSVProbe(op.Operator):
             if self.do_dataframe:
                 self.data.append(row)
 
+        # On some distributed, high-speed, and parallel file systems, it is
+        # important to regularly flush streams to ensure output.
+        self.stream.flush()
+
         return population
 
     def get_row_dict(self, ind):
