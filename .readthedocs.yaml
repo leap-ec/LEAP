@@ -24,8 +24,11 @@ python:
 
 build:
   os: ubuntu-22.04
+  apt_packages:
+    # Sphinx inheritance diagrams require the system Graphviz `dot` executable.
+    - graphviz
   tools:
-    python: "3.7"
+    python: "3.11"
     nodejs: "18"
     rust: "1.64"
     golang: "1.19"
